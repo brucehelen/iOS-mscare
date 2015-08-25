@@ -1,0 +1,53 @@
+//
+//  mscare-prefix.pch
+//  mscare
+//
+//  Created by MissionHealth on 15/8/25.
+//  Copyright (c) 2015年 kangmei. All rights reserved.
+//
+
+#ifndef mscare_mscare_prefix_pch
+#define mscare_mscare_prefix_pch
+
+#ifdef __OBJC__
+    #import "Masonry.h"
+    #import "SVProgressHUD.h"
+    #import "UIViewController+ZZExtends.h"
+    #import "UINavigationBar+ZZExtends.h"
+    #import "IQKeyboardManager.h"
+    #import "MemberManager.h"
+    #import "SNUtility.h"
+    #import "NSString+ZZExtends.h"
+    #import "UIImageView+Cache.h"
+    #import "UIView+Toast.h"
+#endif
+
+// 常用的宏定义
+#define RGBA(Red,Green,Blue,Alpha) [UIColor colorWithRed:Red/255.0f green:Green/255.0f blue:Blue/255.0f alpha:Alpha]
+
+// #19BF1E 植物绿
+
+#define ZZMainColor         RGBA(247,247,247,1.0f)
+#define ZZNavColor          RGBA(0x31, 0x65, 0x96, 1.0f)    // 导航栏，深蓝色背景
+#define ZZLineColor         RGBA(220,220,220,1.0f)          // 详情页面灰色线条
+#define ZZBlueButtonColor   RGBA(85,165,255,1.0f)           // 天蓝色按钮背景颜色
+#define ZZGreenColor        RGBA(71,200,0,1.0f)             // 深绿色，绿色文字
+#define ZZTextGreyColor     RGBA(179,179,179,1.0f)          // 灰色的字体颜色
+
+#define SCREENWIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREENHEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+#define kHostAddress        @"http://api.scinan.com"
+
+// 模块AP模式常用配置项
+// 模块AP头
+#define kModelAPHeader      @"HAIHE"
+// IP地址
+#define kModuleIPAddress    @"192.168.1.1"
+// 模块监听的TCP端口
+#define kModuleIPPort       2000
+// 厂商模块ID头
+#define kDeviceTypePrefix   @"1044"     // 苏州魔盒
+
+
+#endif
