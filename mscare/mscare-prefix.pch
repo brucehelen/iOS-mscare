@@ -26,9 +26,9 @@
 #define RGBA(Red,Green,Blue,Alpha) [UIColor colorWithRed:Red/255.0f green:Green/255.0f blue:Blue/255.0f alpha:Alpha]
 
 // #19BF1E 植物绿
-
+// #00B2B3
 #define ZZMainColor         RGBA(247,247,247,1.0f)
-#define ZZNavColor          RGBA(0x31, 0x65, 0x96, 1.0f)    // 导航栏，深蓝色背景
+#define ZZNavColor          RGBA(0x00, 0xB2, 0xB3, 1.0f)    // 导航栏，深蓝色背景
 #define ZZLineColor         RGBA(220,220,220,1.0f)          // 详情页面灰色线条
 #define ZZBlueButtonColor   RGBA(85,165,255,1.0f)           // 天蓝色按钮背景颜色
 #define ZZGreenColor        RGBA(71,200,0,1.0f)             // 深绿色，绿色文字

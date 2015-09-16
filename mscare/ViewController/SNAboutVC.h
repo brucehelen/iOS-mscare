@@ -13,8 +13,6 @@
  */
 @interface SNAboutVC : UIViewController
 
-@property (nonatomic, weak) UIViewController *deviceListVC;
-
 /**
  *  单例
  *

@@ -7,13 +7,15 @@
 //
 
 #import "AppDelegate.h"
-#import "SlideNavigationController.h"
-#import "SNLoginVC.h"
 #import "IQKeyboardManager.h"
 #import "Reachability.h"
+#import "HKSlideMenu3DController.h"
+#import "SNLoginVC.h"
 #import "SNAboutVC.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) UITabBarController *mainTabBarVC;
 
 @end
 
@@ -23,35 +25,47 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    SNLoginVC *rootVC = [[SNLoginVC alloc] init];
-    SlideNavigationController *vc = [[SlideNavigationController alloc] initWithRootViewController:rootVC];
-    vc.view.backgroundColor = [UIColor whiteColor];
-    
-    self.window.rootViewController = vc;
+
+    self.window.rootViewController = self.slideMenuVC;
     [self.window makeKeyAndVisible];
-    
-    // 配置侧滑
-    [self configSlideNavigationController];
+
     // 配置键盘
     [self configIQKeyBoardManager];
     // 配置HUD
     [self configSVHUD];
     // 注册网络通知
     [self configReachability];
-    
+
     return YES;
 }
 
-#pragma mark - 配置侧滑
-- (void)configSlideNavigationController
+- (HKSlideMenu3DController *)slideMenuVC
 {
-    SNAboutVC *leftMenu = [SNAboutVC shareInstance];
-    
-    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-    [SlideNavigationController sharedInstance].enableShadow = YES;
-    // 设置导航栏默认颜色(全局属性)
-    [[SlideNavigationController sharedInstance].navigationBar configureNavigationBarBackgroundColor:ZZNavColor];
+    if (_slideMenuVC == nil) {
+        [self configSlideMenu];
+    }
+
+    return _slideMenuVC;
+}
+
+#pragma mark - 首页配置侧滑功能
+- (void)configSlideMenu
+{
+    _slideMenuVC = [[HKSlideMenu3DController alloc] init];
+    _slideMenuVC.view.frame =  [[UIScreen mainScreen] bounds];
+    [SNAboutVC shareInstance].view.frame = [[UIScreen mainScreen] bounds];
+    _slideMenuVC.menuViewController = [SNAboutVC shareInstance];
+
+    SNLoginVC *loginVC = [[SNLoginVC alloc] init];
+    loginVC.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+    _slideMenuVC.mainViewController = loginVC;
+    _slideMenuVC.enablePan = YES;
+    _slideMenuVC.view.backgroundColor = [UIColor whiteColor];
+}
+
++ (AppDelegate *)mainDelegate
+{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
 #pragma mark - 配置键盘样式
@@ -89,12 +103,11 @@
 - (void)reachabilityChanged:(NSNotification *)note
 {
     Reachability *reach = [note object];
-    
+
     NetworkStatus status = [reach currentReachabilityStatus];
     NSLog(@"reachabilityChanged: %d", (int)status);
-    
+
     memberShare.currentNetworkStatus = status;
 }
-
 
 @end

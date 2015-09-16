@@ -7,7 +7,6 @@
 //
 
 #import "SNAboutVC.h"
-#import "SlideNavigationController.h"
 
 @interface SNAboutVC ()
 
@@ -29,7 +28,7 @@
 
 - (void)viewDidLoad
 {
-    self.view.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.5];
+    self.view.backgroundColor = [UIColor greenColor];
     [super viewDidLoad];
 }
 

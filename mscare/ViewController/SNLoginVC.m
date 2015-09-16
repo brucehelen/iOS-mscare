@@ -7,11 +7,19 @@
 //
 
 #import "SNLoginVC.h"
-#import "SlideNavigationController.h"
 #import "SVProgressHUD.h"
 #import "SDImageCache.h"
 #import "BZIconTextFieldView.h"
 #import "M13Checkbox.h"
+
+#import "MCFirstMainVC.h"
+#import "MCSecondMainVC.h"
+#import "MCThirdMainVC.h"
+#import "BZMapView.h"
+
+#import "AppDelegate.h"
+
+#import "BaseNavigationController.h"
 
 #define kButtonLoginTag     1000
 #define kButtonQRTag        1001
@@ -26,6 +34,8 @@
 
 @property (nonatomic, strong) M13Checkbox *autoLogin;
 @property (nonatomic, strong) M13Checkbox *remenberMe;
+
+@property (nonatomic, strong) UITabBarController *mainTabBarVC;
 
 @end
 
@@ -210,8 +220,10 @@
 {
     switch (sender.tag) {
         case kButtonLoginTag:       // 登录按钮
-            [UIApplication sharedApplication] 
-            break;
+        {
+            // do login...
+            [AppDelegate mainDelegate].slideMenuVC.mainViewController = self.mainTabBarVC;
+        } break;
         case kButtonQRTag:          // QRCode登录
             break;
         case kButtonForgetTag:      // 忘记密码
@@ -224,5 +236,49 @@
     }
 }
 
+- (UITabBarController *)mainTabBarVC
+{
+    if (_mainTabBarVC == nil) {
+        [self configViewControllers];
+    }
+
+    return _mainTabBarVC;
+}
+
+- (void)configViewControllers
+{
+    _mainTabBarVC = [[UITabBarController alloc] init];
+    _mainTabBarVC.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+
+    MCFirstMainVC *vc1 = [[MCFirstMainVC alloc] init];
+    vc1.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+    BZMapView *mapView = [[BZMapView alloc] initWithNibName:@"BZMapView" bundle:nil];
+    BaseNavigationController *firstNav = [[BaseNavigationController alloc] initWithRootViewController:mapView];
+
+    MCSecondMainVC *vc2 = [[MCSecondMainVC alloc] init];
+    vc2.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+    BaseNavigationController *secondNav = [[BaseNavigationController alloc] initWithRootViewController:vc2];
+
+    MCThirdMainVC *vc3 = [[MCThirdMainVC alloc] init];
+    vc3.view.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
+    BaseNavigationController *thirdNav = [[BaseNavigationController alloc] initWithRootViewController:vc3];
+
+    _mainTabBarVC.viewControllers = @[firstNav, secondNav, thirdNav];
+
+    NSArray *imageArray = @[@"ico_tabbar_home",
+                            @"ico_tabbar_my",
+                            @"ico_tabbar_more"];
+    NSArray *selectedArray = @[@"ico_tabbar_home_selected",
+                               @"ico_tabbar_my_selected",
+                               @"ico_tabbar_more_selected"];
+    NSArray *titleArray = @[@"首页", @"我的", @"更多"];
+
+    for (int i = 0; i < 3; i++) {
+        UITabBarItem *barItem = _mainTabBarVC.tabBar.items[i];
+        barItem.title = titleArray[i];
+        barItem.image = [UIImage imageNamed:imageArray[i]];
+        barItem.selectedImage = [UIImage imageNamed:selectedArray[i]];
+    }
+}
 
 @end
