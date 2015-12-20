@@ -13,7 +13,7 @@
 
 - (void) configureNavigationBarBackgroundColor:(UIColor *)color {
     [self setBackgroundImage:[UIImage imageWithColor:color cornerRadius:0]
-               forBarMetrics:UIBarMetricsDefault & UIBarMetricsLandscapePhone];
+               forBarMetrics:UIBarMetricsDefault & UIBarMetricsCompact];
     
     NSMutableDictionary *titleTextAttributes = [[self titleTextAttributes] mutableCopy];
     if (!titleTextAttributes) {

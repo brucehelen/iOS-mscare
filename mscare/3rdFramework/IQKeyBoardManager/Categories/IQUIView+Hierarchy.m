@@ -23,9 +23,7 @@
 
 #import "IQUIView+Hierarchy.h"
 
-#ifdef NSFoundationVersionNumber_iOS_5_1
 #import <UIKit/UICollectionView.h>
-#endif
 
 #import <UIKit/UITableView.h>
 #import <UIKit/UITextView.h>
@@ -35,6 +33,8 @@
 #import <UIKit/UIWindow.h>
 
 #import <objc/runtime.h>
+
+#import "IQNSArray+Sort.h"
 
 @implementation UIView (IQ_UIView_Hierarchy)
 
@@ -64,13 +64,13 @@ Class UISearchBarTextFieldClass;        //UISearchBar
 
 -(void)_setIsAskingCanBecomeFirstResponder:(BOOL)isAskingCanBecomeFirstResponder
 {
-    objc_setAssociatedObject(self, @selector(isAskingCanBecomeFirstResponder), [NSNumber numberWithBool:isAskingCanBecomeFirstResponder], OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(isAskingCanBecomeFirstResponder), [NSNumber numberWithBool:isAskingCanBecomeFirstResponder], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(BOOL)isAskingCanBecomeFirstResponder
 {
-    NSNumber *shouldHideTitle = objc_getAssociatedObject(self, @selector(isAskingCanBecomeFirstResponder));
-    return [shouldHideTitle boolValue];
+    NSNumber *isAskingCanBecomeFirstResponder = objc_getAssociatedObject(self, @selector(isAskingCanBecomeFirstResponder));
+    return [isAskingCanBecomeFirstResponder boolValue];
 }
 
 -(UIViewController*)viewController
@@ -95,7 +95,10 @@ Class UISearchBarTextFieldClass;        //UISearchBar
     
     UIViewController *topController = self.window.rootViewController;
     
-    [controllersHierarchy addObject:topController];
+    if (topController)
+    {
+        [controllersHierarchy addObject:topController];
+    }
     
     while ([topController presentedViewController]) {
         
@@ -178,24 +181,7 @@ Class UISearchBarTextFieldClass;        //UISearchBar
     NSMutableArray *textFields = [[NSMutableArray alloc] init];
     
     //subviews are returning in opposite order. So I sorted it according the frames 'y'.
-    NSArray *subViews = [self.subviews sortedArrayUsingComparator:^NSComparisonResult(UIView *view1, UIView *view2) {
-        
-        CGFloat x1 = CGRectGetMinX(view1.frame);
-        CGFloat y1 = CGRectGetMinY(view1.frame);
-        CGFloat x2 = CGRectGetMinX(view2.frame);
-        CGFloat y2 = CGRectGetMinY(view2.frame);
-        
-        if (y1 < y2)  return NSOrderedAscending;
-        
-        else if (y1 > y2) return NSOrderedDescending;
-        
-        //Else both y are same so checking for x positions
-        else if (x1 < x2)  return NSOrderedAscending;
-        
-        else if (x1 > x2) return NSOrderedDescending;
-        
-        else    return NSOrderedSame;
-    }];
+    NSArray *subViews = [self.subviews sortedArrayByPosition];
 
     for (UITextField *textField in subViews)
     {

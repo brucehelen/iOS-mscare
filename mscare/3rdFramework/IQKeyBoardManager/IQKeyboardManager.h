@@ -29,13 +29,29 @@
 #import <Foundation/NSObjCRuntime.h>
 
 #import <UIKit/UITextInputTraits.h>
-
+#import <UIKit/UIView.h>
 
 #if !(__has_feature(objc_instancetype))
 #define instancetype id
 #endif
 
 @class UIFont;
+
+///---------------------
+/// @name IQToolbar tags
+///---------------------
+
+/**
+ Default tag for toolbar with Done button   -1002.
+ */
+extern NSInteger const kIQDoneButtonToolbarTag;
+
+/**
+ Default tag for toolbar with Previous/Next buttons -1005.
+ */
+extern NSInteger const kIQPreviousNextButtonToolbarTag;
+
+
 
 /**
  Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more. A generic version of KeyboardManagement. https://developer.apple.com/Library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
@@ -49,7 +65,7 @@
 /**
  Returns the default singleton instance.
  */
-+ (instancetype)sharedManager;
++ (nonnull instancetype)sharedManager;
 
 /**
  Enable/disable managing distance between keyboard and textField. Default is YES(Enabled when class loads in `+(void)load` method).
@@ -95,7 +111,7 @@
 /**
  Placeholder Font. Default is nil.
  */
-@property(nonatomic, strong) UIFont *placeholderFont;
+@property(nullable, nonatomic, strong) UIFont *placeholderFont;
 
 ///--------------------------
 /// @name UITextView handling
@@ -139,7 +155,7 @@
 /**
  Resigns currently first responder field.
  */
-- (void)resignFirstResponder;
+- (BOOL)resignFirstResponder;
 
 /**
  Returns YES if can navigate to previous responder textField/textView, otherwise NO.
@@ -154,12 +170,12 @@
 /**
  Navigate to previous responder textField/textView.
  */
-- (void)goPrevious;
+- (BOOL)goPrevious;
 
 /**
  Navigate to next responder textField/textView.
  */
-- (void)goNext;
+- (BOOL)goNext;
 
 ///----------------------------
 /// @name UIScrollView handling
@@ -190,6 +206,11 @@
  */
 @property(nonatomic, assign) BOOL shouldAdoptDefaultKeyboardAnimation;
 
+/**
+ If YES, then calls 'setNeedsLayout' and 'layoutIfNeeded' on any frame update of to viewController's view.
+ */
+@property(nonatomic, assign) BOOL layoutIfNeededOnUpdate;
+
 ///------------------------------------
 /// @name Class Level disabling methods
 ///------------------------------------
@@ -199,70 +220,78 @@
  
  @param disabledClass Class in which library should not adjust view to show textField.
  */
--(void)disableInViewControllerClass:(Class)disabledClass;
+-(void)disableInViewControllerClass:(nonnull Class)disabledClass;
 
 /**
  Re-enable adjusting textField in disabledClass
  
  @param disabledClass Class in which library should re-enable adjust view to show textField.
  */
--(void)removeDisableInViewControllerClass:(Class)disabledClass;
+-(void)removeDisableInViewControllerClass:(nonnull Class)disabledClass;
+
+/**
+ Returns YES if ViewController class is disabled for library, otherwise returns NO.
+ 
+ @param disabledClass Class which is to check for it's disability.
+ */
+-(BOOL)isDisableInViewControllerClass:(nonnull Class)disabledClass;
 
 /**
  Disable automatic toolbar creation in in toolbarDisabledClass
  
  @param toolbarDisabledClass Class in which library should not add toolbar over textField.
  */
--(void)disableToolbarInViewControllerClass:(Class)toolbarDisabledClass;
+-(void)disableToolbarInViewControllerClass:(nonnull Class)toolbarDisabledClass;
 
 /**
  Re-enable automatic toolbar creation in in toolbarDisabledClass
  
  @param toolbarDisabledClass Class in which library should re-enable automatic toolbar creation over textField.
  */
--(void)removeDisableToolbarInViewControllerClass:(Class)toolbarDisabledClass;
+-(void)removeDisableToolbarInViewControllerClass:(nonnull Class)toolbarDisabledClass;
+
+/**
+ Returns YES if toolbar is disabled in ViewController class, otherwise returns NO.
+ 
+ @param toolbarDisabledClass Class which is to check for toolbar disability.
+ */
+-(BOOL)isDisableToolbarInViewControllerClass:(nonnull Class)toolbarDisabledClass;
 
 /**
  Consider provided customView class as superView of all inner textField for calculating next/previous button logic.
  
  @param toolbarPreviousNextConsideredClass Custom UIView subclass Class in which library should consider all inner textField as siblings and add next/previous accordingly.
  */
--(void)considerToolbarPreviousNextInViewClass:(Class)toolbarPreviousNextConsideredClass;
+-(void)considerToolbarPreviousNextInViewClass:(nonnull Class)toolbarPreviousNextConsideredClass;
 
 /**
  Remove Consideration for provided customView class as superView of all inner textField for calculating next/previous button logic.
  
  @param toolbarPreviousNextConsideredClass Custom UIView subclass Class in which library should remove consideration for all inner textField as superView.
  */
--(void)removeConsiderToolbarPreviousNextInViewClass:(Class)toolbarPreviousNextConsideredClass;
+-(void)removeConsiderToolbarPreviousNextInViewClass:(nonnull Class)toolbarPreviousNextConsideredClass;
 
-///------------------------------------------------
+/**
+ Returns YES if inner hierarchy is considered for previous/next in class, otherwise returns NO.
+ 
+ @param toolbarPreviousNextConsideredClass Class which is to check for previous next consideration
+ */
+-(BOOL)isConsiderToolbarPreviousNextInViewClass:(nonnull Class)toolbarPreviousNextConsideredClass;
+
+
+///----------------------------------------
 /// @name Must not be used for subclassing.
-///------------------------------------------------
+///----------------------------------------
 
 /**
- Should create only one instance of class. Should not call init.
+ Unavailable. Please use sharedManager method
  */
-- (instancetype)init	__attribute__((unavailable("init is not available in IQKeyboardManager, Use sharedManager"))) NS_DESIGNATED_INITIALIZER;
+-(nonnull instancetype)init NS_UNAVAILABLE;
 
 /**
- Should create only one instance of class. Should not call new.
+ Unavailable. Please use sharedManager method
  */
-+ (instancetype)new	__attribute__((unavailable("new is not available in IQKeyboardManager, Use sharedManager")));
++ (nonnull instancetype)new NS_UNAVAILABLE;
 
 @end
-
-///---------------------
-/// @name IQToolbar tags
-///---------------------
-
-/**
- Default tag for toolbar with Done button   -1002.
- */
-extern NSInteger const kIQDoneButtonToolbarTag;
-
-/**
- Default tag for toolbar with Previous/Next buttons -1005.
- */
-extern NSInteger const kIQPreviousNextButtonToolbarTag;
 

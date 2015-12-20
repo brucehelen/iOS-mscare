@@ -220,7 +220,7 @@ NSString *JVFloatingDrawerSideString(JVFloatingDrawerSide side) {
     return [self.centerViewController shouldAutorotate];
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return [self.centerViewController supportedInterfaceOrientations];;
 }
 
