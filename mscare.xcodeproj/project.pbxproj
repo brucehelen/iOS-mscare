@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32A683A21B9D8BE100484958 /* BZMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A683A01B9D8BE100484958 /* BZMapView.m */; };
-		32A683A31B9D8BE100484958 /* BZMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A683A11B9D8BE100484958 /* BZMapView.xib */; };
 		32A683A51B9D8D8600484958 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A683A41B9D8D8600484958 /* MapKit.framework */; };
 		32DFC9F01C17A5A800D7FDEA /* HKSlideMenu3DController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32DFC9EF1C17A5A800D7FDEA /* HKSlideMenu3DController.m */; };
 		32E770F21B945B0000067AD9 /* MCFirstMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E770F11B945B0000067AD9 /* MCFirstMainVC.m */; };
@@ -111,6 +109,8 @@
 		32FD3DCE1C2633830032B812 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FD3D7C1C2633830032B812 /* UIImageView+HighlightedWebCache.m */; };
 		32FD3DCF1C2633830032B812 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FD3D7E1C2633830032B812 /* UIImageView+WebCache.m */; };
 		32FD3DD01C2633830032B812 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FD3D801C2633830032B812 /* UIView+WebCacheOperation.m */; };
+		32FD3DD41C2641990032B812 /* ickey_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32FD3DD21C2641990032B812 /* ickey_icon.jpg */; };
+		32FD3DD51C2641990032B812 /* ickey_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FD3DD31C2641990032B812 /* ickey_start.png */; };
 		7A1056A91B8C34C800F3D339 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1056A81B8C34C800F3D339 /* main.m */; };
 		7A1056AC1B8C34C800F3D339 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1056AB1B8C34C800F3D339 /* AppDelegate.m */; };
 		7A1056B41B8C34C800F3D339 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1056B31B8C34C800F3D339 /* Images.xcassets */; };
@@ -245,9 +245,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		32A6839F1B9D8BE100484958 /* BZMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZMapView.h; sourceTree = "<group>"; };
-		32A683A01B9D8BE100484958 /* BZMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZMapView.m; sourceTree = "<group>"; };
-		32A683A11B9D8BE100484958 /* BZMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BZMapView.xib; sourceTree = "<group>"; };
 		32A683A41B9D8D8600484958 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		32DFC9EE1C17A5A800D7FDEA /* HKSlideMenu3DController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSlideMenu3DController.h; sourceTree = "<group>"; };
 		32DFC9EF1C17A5A800D7FDEA /* HKSlideMenu3DController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSlideMenu3DController.m; sourceTree = "<group>"; };
@@ -444,6 +441,8 @@
 		32FD3D7E1C2633830032B812 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		32FD3D7F1C2633830032B812 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		32FD3D801C2633830032B812 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		32FD3DD21C2641990032B812 /* ickey_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ickey_icon.jpg; sourceTree = "<group>"; };
+		32FD3DD31C2641990032B812 /* ickey_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ickey_start.png; sourceTree = "<group>"; };
 		7A1056A31B8C34C800F3D339 /* mscare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mscare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1056A71B8C34C800F3D339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A1056A81B8C34C800F3D339 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -993,6 +992,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		32FD3DD11C2641990032B812 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				32FD3DD21C2641990032B812 /* ickey_icon.jpg */,
+				32FD3DD31C2641990032B812 /* ickey_start.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
 		7A10569A1B8C34C800F3D339 = {
 			isa = PBXGroup;
 			children = (
@@ -1343,9 +1351,6 @@
 				32E771291B95AB4B00067AD9 /* BaseNavigationController.m */,
 				32E770F01B945B0000067AD9 /* MCFirstMainVC.h */,
 				32E770F11B945B0000067AD9 /* MCFirstMainVC.m */,
-				32A6839F1B9D8BE100484958 /* BZMapView.h */,
-				32A683A01B9D8BE100484958 /* BZMapView.m */,
-				32A683A11B9D8BE100484958 /* BZMapView.xib */,
 				32E770F31B945B4B00067AD9 /* MCSecondMainVC.h */,
 				32E770F41B945B4B00067AD9 /* MCSecondMainVC.m */,
 				32E770F61B945B7200067AD9 /* MCThirdMainVC.h */,
@@ -1357,6 +1362,7 @@
 		7A5376711B8C410B001ADAAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				32FD3DD11C2641990032B812 /* icon */,
 				32E770F91B954E4400067AD9 /* TabbarImage */,
 				32E771021B954E4400067AD9 /* TabbarImage3x */,
 				7A5376721B8C410C001ADAAA /* images */,
@@ -1493,7 +1499,6 @@
 				TargetAttributes = {
 					7A1056A21B8C34C800F3D339 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = ZDPA9UP473;
 					};
 					7A1056BB1B8C34C800F3D339 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1599,9 +1604,10 @@
 				7A5376C11B8C5479001ADAAA /* icon_02.png in Resources */,
 				7A5376CF1B8C5479001ADAAA /* icon_16.png in Resources */,
 				7A5376C81B8C5479001ADAAA /* icon_09.png in Resources */,
+				32FD3DD41C2641990032B812 /* ickey_icon.jpg in Resources */,
 				7A10582D1B8C362A00F3D339 /* alert-window.png in Resources */,
+				32FD3DD51C2641990032B812 /* ickey_start.png in Resources */,
 				32FD3D981C2633830032B812 /* Info.plist in Resources */,
-				32A683A31B9D8BE100484958 /* BZMapView.xib in Resources */,
 				7A1056B71B8C34C800F3D339 /* LaunchScreen.xib in Resources */,
 				7A5376D81B8C5479001ADAAA /* nttBg4.png in Resources */,
 				7A5376D01B8C5479001ADAAA /* icon_17.png in Resources */,
@@ -1716,7 +1722,6 @@
 				32DFC9F01C17A5A800D7FDEA /* HKSlideMenu3DController.m in Sources */,
 				32FD3D841C2633830032B812 /* AFNetworkReachabilityManager.m in Sources */,
 				7A1058321B8C362A00F3D339 /* BlockAlertView.m in Sources */,
-				32A683A21B9D8BE100484958 /* BZMapView.m in Sources */,
 				32FD3DBD1C2633830032B812 /* MJRefreshConst.m in Sources */,
 				32FD3DBE1C2633830032B812 /* UIScrollView+MJExtension.m in Sources */,
 				32FD3DAA1C2633830032B812 /* NSObject+MJCoding.m in Sources */,
