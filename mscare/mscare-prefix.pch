@@ -10,16 +10,19 @@
 #define mscare_mscare_prefix_pch
 
 #ifdef __OBJC__
-    #import "Masonry.h"
-    #import "SVProgressHUD.h"
-    #import "UIViewController+ZZExtends.h"
-    #import "UINavigationBar+ZZExtends.h"
-    #import "IQKeyboardManager.h"
-    #import "MemberManager.h"
-    #import "SNUtility.h"
-    #import "NSString+ZZExtends.h"
-    #import "UIImageView+Cache.h"
-    #import "UIView+Toast.h"
+#import "Masonry.h"
+#import "SVProgressHUD.h"
+#import "UIViewController+ZZExtends.h"
+#import "UINavigationBar+ZZExtends.h"
+#import "IQKeyboardManager.h"
+#import "MemberManager.h"
+#import "SNUtility.h"
+#import "NSString+ZZExtends.h"
+#import "UIImageView+Cache.h"
+#import "UIView+Toast.h"
+#import "UIImage+ZZExtends.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
 #endif
 
 // 常用的宏定义
@@ -39,17 +42,13 @@
 
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
 
-#define kHostAddress        @"http://api.scinan.com"
+#ifdef DEBUG
+#define DMLog(...) NSLog(__VA_ARGS__)
+#else
+#define DMLog(...) do { } while (0)
+#endif
 
-// 模块AP模式常用配置项
-// 模块AP头
-#define kModelAPHeader      @"HAIHE"
-// IP地址
-#define kModuleIPAddress    @"192.168.1.1"
-// 模块监听的TCP端口
-#define kModuleIPPort       2000
-// 厂商模块ID头
-#define kDeviceTypePrefix   @"1044"     // 苏州魔盒
-
+// 树莓派云端地址
+#define kHostAddress        @"bruce-zhu.zicp.net:37936"
 
 #endif

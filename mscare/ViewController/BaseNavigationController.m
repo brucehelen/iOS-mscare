@@ -18,7 +18,11 @@
 {
     self = [super initWithRootViewController:rootViewController];
     if (self) {
-        [self.navigationBar configureNavigationBarBackgroundColor:ZZNavColor];
+        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"pic_top+titlebar_1334"]
+                                 forBarMetrics:UIBarMetricsDefault];
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+        
+        [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:20]}];
     }
 
     return self;

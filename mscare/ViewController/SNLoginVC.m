@@ -35,9 +35,7 @@
 {
     [super viewDidLoad];
 
-    self.navigationController.navigationBarHidden = YES;
     [self configView];
-
     [self jumpMainVC];
 }
 
@@ -73,7 +71,7 @@
     UILabel *nameLabel = [UILabel new];
     nameLabel.textColor = RGBA(79, 218, 85, 1);
     nameLabel.text = @"智慧家庭(Smart Home)";
-    nameLabel.font = [UIFont boldSystemFontOfSize:25];
+    nameLabel.font = [UIFont boldSystemFontOfSize:27];
     nameLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:nameLabel];
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -101,7 +99,7 @@
 - (void)jumpMainVC
 {
     WS(ws);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4.0 * NSEC_PER_SEC)),
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)),
                    dispatch_get_main_queue(),
                    ^{
                        [AppDelegate mainDelegate].slideMenuVC.mainViewController = ws.mainTabBarVC;

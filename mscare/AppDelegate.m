@@ -92,7 +92,7 @@
 {
     // 使用百度测试网络是否正常
     Reachability* reach = [Reachability reachabilityWithHostname:@"www.baidu.com"];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
                                                  name:kReachabilityChangedNotification
