@@ -162,6 +162,7 @@
     [self.airButton setImage:[UIImage imageNamed:@"device_airpurifier_on_icon"]
                     forState:UIControlStateSelected];
     self.airButton.imageView.contentMode = UIViewContentModeScaleToFill;
+    [self.airButton addTarget:self action:@selector(airFanBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.airButton setTintColor:[UIColor whiteColor]];
     [self.view addSubview:self.airButton];
     [self.airButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -227,6 +228,25 @@
     }
 }
 
+#pragma mark - 空气过滤器开关点击
+- (void)airFanBtnDidClicked:(UIButton *)sender
+{
+    WS(ws);
+
+    BOOL oldStatus = self.relayModel.value;
+
+    [[KMNetAPI manager] updateRelaysStatus:!self.relayModel.value
+                                     block:^(int code, id resModel) {
+                                         if (code == 0 && resModel) {
+                                             ws.relayModel = resModel;
+                                             if (ws.relayModel.value == oldStatus) {
+                                                 [SVProgressHUD showErrorWithStatus:@"操作失败"];
+                                             }
+                                             [ws reloadData];
+                                         }
+                                     }];
+}
+
 /**
  *  获取空气过滤器状态
  */
@@ -234,7 +254,6 @@
 {
     WS(ws);
 
-    [SVProgressHUD showWithStatus:@"正在获取空气过滤器状态"];
     [[KMNetAPI manager] getRelayStatus:^(int code, id resModel) {
         [SVProgressHUD dismiss];
         if (code == 0 && resModel) {
@@ -261,7 +280,7 @@
         if ([self.sensorModel.value.device_id isEqualToString:@"G3-001"]) {
             self.airButton.hidden = NO;
             if (self.relayModel.value == 1) {
-                [self.airButton rotate360WithDuration:0.5 repeatCount:LONG_MAX timingMode:i7Rotate360TimingModeLinear];
+                [self.airButton rotate360WithDuration:0.6 repeatCount:LONG_MAX timingMode:i7Rotate360TimingModeLinear];
             } else {
                 [self.airButton stop];
             }

@@ -34,6 +34,14 @@ typedef void (^KMRequestResultBlock)(int code, id resModel);
  *  @param block 结果返回的block
  */
 - (void)getRelayStatus:(KMRequestResultBlock)block;
+/**
+ *  更新空气过滤器状态
+ *
+ *  @param newStatus 是否打开
+ *  @param block     结果返回block
+ */
+- (void)updateRelaysStatus:(BOOL)newStatus
+                     block:(KMRequestResultBlock)block;
 
 @end
 

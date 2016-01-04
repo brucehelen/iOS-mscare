@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  风扇模型
+ *  继电器数据模型
  */
 @interface HBRelayModel : NSObject
 /**

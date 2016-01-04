@@ -146,6 +146,38 @@
          }];
 }
 
+/**
+ *  更新空气过滤器状态
+ *
+ *  @param newStatus 是否打开
+ *  @param block     结果返回block
+ */
+- (void)updateRelaysStatus:(BOOL)newStatus
+                     block:(KMRequestResultBlock)block
+{
+    self.requestBlock = block;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 30;
+    
+    [manager GET:[NSString stringWithFormat:@"http://%@/api/gpio/relays?value=%d", kHostAddress, newStatus]
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             NSString *jsonString = [[NSString alloc] initWithData:responseObject
+                                                          encoding:NSUTF8StringEncoding];
+             DMLog(@"<- %@", jsonString);
+             if (self.requestBlock) {
+                 self.requestBlock(0, [HBRelayModel mj_objectWithKeyValues:responseObject]);
+             }
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (self.requestBlock) {
+                 self.requestBlock((int)error.code, nil);
+             }
+             self.requestBlock = nil;
+         }];
+}
+
 #pragma mark - 连接成功
 - (void)connection: (NSURLConnection *)connection didReceiveResponse: (NSURLResponse *)aResponse
 {
