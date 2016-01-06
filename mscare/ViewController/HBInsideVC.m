@@ -206,6 +206,7 @@
 
     WS(ws);
     [SVProgressHUD showWithStatus:@"正在获取数据"];
+    NSLog(@"deviceID: %@", self.sensorModel.value.device_id);
     if ([self.sensorModel.value.device_id isEqualToString:@"G3-001"]) {     // 室内
         [[KMNetAPI manager] getInsideDataFromServerWithBlock:^(int code, id resModel) {
             [SVProgressHUD dismiss];
@@ -221,6 +222,7 @@
             [SVProgressHUD dismiss];
             if (code == 0 && resModel) {
                 ws.sensorModel = resModel;
+                [ws reloadData];
             } else {
                 [SVProgressHUD showErrorWithStatus:ws.sensorModel.desc ? ws.sensorModel.desc : @"获取室外传感器失败"];
             }
@@ -271,6 +273,7 @@
  */
 - (void)reloadData
 {
+    NSLog(@"reloadData: %@", self.sensorModel.value.device_id);
     if (self.sensorModel) {
         self.pm2_5Label.text = [NSString stringWithFormat:@"%.1fug/m³", self.sensorModel.value.sensor.pm2_5];
         self.pm1_0Label.text = [NSString stringWithFormat:@"PM1.0\n%.1fug/m³", self.sensorModel.value.sensor.pm1_0];

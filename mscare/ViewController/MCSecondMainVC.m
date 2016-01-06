@@ -14,6 +14,13 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+
+    [self configView];
+}
+
+- (void)configView
+{
+    
 }
 
 @end
