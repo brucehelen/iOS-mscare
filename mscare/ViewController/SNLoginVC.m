@@ -140,9 +140,9 @@
     NSArray *selectedArray = @[@"ico_tabbar_home_selected",
                                @"ico_tabbar_my_selected",
                                @"ico_tabbar_more_selected"];
-    NSArray *titleArray = @[@"首页", @"监控", @"更多"];
+    NSArray *titleArray = @[@"首页", @"监控", @"关于"];
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < titleArray.count; i++) {
         UITabBarItem *barItem = _mainTabBarVC.tabBar.items[i];
         barItem.title = titleArray[i];
         barItem.image = [UIImage imageNamed:imageArray[i]];

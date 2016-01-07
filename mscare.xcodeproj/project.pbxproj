@@ -231,7 +231,6 @@
 		7A1059271B8C369E00F3D339 /* SNLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1059021B8C369E00F3D339 /* SNLoginVC.m */; };
 		7A53766C1B8C3D4B001ADAAA /* SNAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A53766B1B8C3D4B001ADAAA /* SNAboutVC.m */; };
 		7A53767A1B8C453D001ADAAA /* BZIconTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5376791B8C453D001ADAAA /* BZIconTextFieldView.m */; };
-		7A53768A1B8C50FC001ADAAA /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5376891B8C50FC001ADAAA /* Reveal.framework */; };
 		7A53768C1B8C5118001ADAAA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A53768B1B8C5118001ADAAA /* CFNetwork.framework */; };
 		7A53768E1B8C511F001ADAAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A53768D1B8C511F001ADAAA /* SystemConfiguration.framework */; };
 		7A5376901B8C5140001ADAAA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A53768F1B8C5140001ADAAA /* MobileCoreServices.framework */; };
@@ -240,6 +239,9 @@
 		7A5376E61B8C650E001ADAAA /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5376E11B8C650E001ADAAA /* RDVTabBar.m */; };
 		7A5376E71B8C650E001ADAAA /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5376E31B8C650E001ADAAA /* RDVTabBarController.m */; };
 		7A5376E81B8C650E001ADAAA /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5376E51B8C650E001ADAAA /* RDVTabBarItem.m */; };
+		7A7ABADC1C3CC6B90039DE3E /* HBNetResModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7ABADB1C3CC6B90039DE3E /* HBNetResModel.m */; };
+		7A972A231C3E5A9200AEB906 /* HBPIRRemoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A972A221C3E5A9200AEB906 /* HBPIRRemoteModel.m */; };
+		7A972A261C3E6D5700AEB906 /* HBGASRemoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A972A251C3E6D5700AEB906 /* HBGASRemoteModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -631,7 +633,6 @@
 		7A53766B1B8C3D4B001ADAAA /* SNAboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNAboutVC.m; sourceTree = "<group>"; };
 		7A5376781B8C453D001ADAAA /* BZIconTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZIconTextFieldView.h; sourceTree = "<group>"; };
 		7A5376791B8C453D001ADAAA /* BZIconTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZIconTextFieldView.m; sourceTree = "<group>"; };
-		7A5376891B8C50FC001ADAAA /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		7A53768B1B8C5118001ADAAA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7A53768D1B8C511F001ADAAA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7A53768F1B8C5140001ADAAA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -643,6 +644,12 @@
 		7A5376E31B8C650E001ADAAA /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
 		7A5376E41B8C650E001ADAAA /* RDVTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarItem.h; sourceTree = "<group>"; };
 		7A5376E51B8C650E001ADAAA /* RDVTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarItem.m; sourceTree = "<group>"; };
+		7A7ABADA1C3CC6B90039DE3E /* HBNetResModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBNetResModel.h; sourceTree = "<group>"; };
+		7A7ABADB1C3CC6B90039DE3E /* HBNetResModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBNetResModel.m; sourceTree = "<group>"; };
+		7A972A211C3E5A9200AEB906 /* HBPIRRemoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPIRRemoteModel.h; sourceTree = "<group>"; };
+		7A972A221C3E5A9200AEB906 /* HBPIRRemoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPIRRemoteModel.m; sourceTree = "<group>"; };
+		7A972A241C3E6D5700AEB906 /* HBGASRemoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBGASRemoteModel.h; sourceTree = "<group>"; };
+		7A972A251C3E6D5700AEB906 /* HBGASRemoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBGASRemoteModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -656,7 +663,6 @@
 				7A5376901B8C5140001ADAAA /* MobileCoreServices.framework in Frameworks */,
 				7A53768E1B8C511F001ADAAA /* SystemConfiguration.framework in Frameworks */,
 				7A53768C1B8C5118001ADAAA /* CFNetwork.framework in Frameworks */,
-				7A53768A1B8C50FC001ADAAA /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,8 +703,14 @@
 				3220B2E81C393A0100B60008 /* HBSensorValue.m */,
 				3220B2EA1C393B0300B60008 /* HBSensors.h */,
 				3220B2EB1C393B0300B60008 /* HBSensors.m */,
+				7A7ABADA1C3CC6B90039DE3E /* HBNetResModel.h */,
+				7A7ABADB1C3CC6B90039DE3E /* HBNetResModel.m */,
 				3220B3041C39EB9D00B60008 /* HBRelayModel.h */,
 				3220B3051C39EB9D00B60008 /* HBRelayModel.m */,
+				7A972A211C3E5A9200AEB906 /* HBPIRRemoteModel.h */,
+				7A972A221C3E5A9200AEB906 /* HBPIRRemoteModel.m */,
+				7A972A241C3E6D5700AEB906 /* HBGASRemoteModel.h */,
+				7A972A251C3E6D5700AEB906 /* HBGASRemoteModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1496,7 +1508,6 @@
 				7A53768F1B8C5140001ADAAA /* MobileCoreServices.framework */,
 				7A53768D1B8C511F001ADAAA /* SystemConfiguration.framework */,
 				7A53768B1B8C5118001ADAAA /* CFNetwork.framework */,
-				7A5376891B8C50FC001ADAAA /* Reveal.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -1563,6 +1574,12 @@
 				TargetAttributes = {
 					7A1056A21B8C34C800F3D339 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = ZDPA9UP473;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					7A1056BB1B8C34C800F3D339 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1746,6 +1763,7 @@
 				7A53766C1B8C3D4B001ADAAA /* SNAboutVC.m in Sources */,
 				7A1058341B8C362A00F3D339 /* BlockTableAlertView.m in Sources */,
 				32FD3DD01C2633830032B812 /* UIView+WebCacheOperation.m in Sources */,
+				7A7ABADC1C3CC6B90039DE3E /* HBNetResModel.m in Sources */,
 				7A1058761B8C362A00F3D339 /* AbstractActionSheetPicker.m in Sources */,
 				32FD3DA41C2633830032B812 /* MJExtensionConst.m in Sources */,
 				32FD3DA71C2633830032B812 /* MJPropertyKey.m in Sources */,
@@ -1808,6 +1826,7 @@
 				32FD3D9D1C2633830032B812 /* MASViewAttribute.m in Sources */,
 				32FD3DAB1C2633830032B812 /* NSObject+MJKeyValue.m in Sources */,
 				32FD3D851C2633830032B812 /* AFSecurityPolicy.m in Sources */,
+				7A972A261C3E6D5700AEB906 /* HBGASRemoteModel.m in Sources */,
 				32FD3D961C2633830032B812 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				32FD3DB91C2633830032B812 /* MJRefreshGifHeader.m in Sources */,
 				7A1058A81B8C363900F3D339 /* Reachability.m in Sources */,
@@ -1826,6 +1845,7 @@
 				7A1058311B8C362A00F3D339 /* BlockActionSheet.m in Sources */,
 				7A1059271B8C369E00F3D339 /* SNLoginVC.m in Sources */,
 				7A1058771B8C362A00F3D339 /* ActionSheetCustomPicker.m in Sources */,
+				7A972A231C3E5A9200AEB906 /* HBPIRRemoteModel.m in Sources */,
 				7A10589A1B8C362A00F3D339 /* SVIndefiniteAnimatedView.m in Sources */,
 				32FD3D911C2633830032B812 /* IQSegmentedNextPrevious.m in Sources */,
 				32FD3D951C2633830032B812 /* IQToolbar.m in Sources */,
@@ -1886,7 +1906,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuxin Wen (M29LLKCYK3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuxin Wen (M29LLKCYK3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1908,6 +1929,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "014167a7-927f-4add-a9f0-da2e0d78c93f";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1929,7 +1951,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuxin Wen (M29LLKCYK3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuxin Wen (M29LLKCYK3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1944,6 +1967,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "014167a7-927f-4add-a9f0-da2e0d78c93f";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1955,6 +1979,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1968,10 +1993,10 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lz",
-					"-framework",
-					Reveal,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kangmei.mscare111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1981,6 +2006,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1994,10 +2020,10 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lz",
-					"-framework",
-					Reveal,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kangmei.mscare111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

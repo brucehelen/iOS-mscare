@@ -66,5 +66,14 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"lastLoginDate"];
 }
 
+#pragma mark - deviceToken
+- (void)setDeviceToken:(NSString *)deviceToken
+{
+    [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:@"deviceToken"];
+}
+- (NSString *)deviceToken
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"];
+}
 
 @end

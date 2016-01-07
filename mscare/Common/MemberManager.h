@@ -42,6 +42,9 @@
  *  当前网络连接
  */
 @property (atomic, assign) NetworkStatus currentNetworkStatus;
-
+/**
+ *  iOS设备的deviceToken
+ */
+@property (nonatomic, copy) NSString *deviceToken;
 
 @end

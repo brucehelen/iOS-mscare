@@ -53,7 +53,7 @@
     [self configNavBar];
     [self configView];
     [self reloadData];
-    [self getAirStatus];
+    [self rightBarButtonDidClicked:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

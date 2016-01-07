@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  监控
+ *  监控(防盗、煤气)
  */
 @interface MCSecondMainVC : UIViewController
 

@@ -178,6 +178,172 @@
          }];
 }
 
+/**
+ *  上传iOS设备的deviceToken
+ *
+ *  @param user        用户名
+ *  @param deviceToken deviceToken
+ *  @param block       结果返回block
+ */
+- (void)uploadDeviceTokenWithUser:(NSString *)user
+                      deviceToken:(NSString *)deviceToken
+                            block:(KMRequestResultBlock)block
+{
+    self.requestBlock = block;
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 30;
+
+    [manager GET:[NSString stringWithFormat:@"http://%@/api/uploadDeviceToken?userName=%@&deviceToken=%@", kHostAddress, user, deviceToken]
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             NSString *jsonString = [[NSString alloc] initWithData:responseObject
+                                                          encoding:NSUTF8StringEncoding];
+             DMLog(@"<- %@", jsonString);
+             if (self.requestBlock) {
+                 self.requestBlock(0, [HBNetResModel mj_objectWithKeyValues:responseObject]);
+             }
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (self.requestBlock) {
+                 self.requestBlock((int)error.code, nil);
+             }
+             self.requestBlock = nil;
+         }];
+}
+
+/**
+ *  更新PIR人体红外传感器的推送功能
+ *
+ *  @param user   用户名
+ *  @param status 是否打开推送
+ *  @param block  结果返回block
+ */
+- (void)updatePIRRemotePpushWithUser:(NSString *)user
+                           newStatus:(BOOL)status
+                            block:(KMRequestResultBlock)block
+{
+    self.requestBlock = block;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 30;
+    
+    [manager GET:[NSString stringWithFormat:@"http://%@/api/enablePIRRemotePush?userName=%@&iOSEnablePIRPush=%d", kHostAddress, user, status]
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             NSString *jsonString = [[NSString alloc] initWithData:responseObject
+                                                          encoding:NSUTF8StringEncoding];
+             DMLog(@"<- %@", jsonString);
+             if (self.requestBlock) {
+                 self.requestBlock(0, [HBNetResModel mj_objectWithKeyValues:responseObject]);
+             }
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (self.requestBlock) {
+                 self.requestBlock((int)error.code, nil);
+             }
+             self.requestBlock = nil;
+         }];
+}
+
+/**
+ *  获取PIR当前推送状态
+ *
+ *  @param user  用户名
+ *  @param block 结果返回block
+ */
+- (void)getPIRRemotePushWithUser:(NSString *)user
+                           block:(KMRequestResultBlock)block
+{
+    self.requestBlock = block;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 30;
+    
+    [manager GET:[NSString stringWithFormat:@"http://%@/api/enablePIRRemotePush?userName=%@", kHostAddress, user]
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             NSString *jsonString = [[NSString alloc] initWithData:responseObject
+                                                          encoding:NSUTF8StringEncoding];
+             DMLog(@"<- %@", jsonString);
+             if (self.requestBlock) {
+                 self.requestBlock(0, [HBPIRRemoteModel mj_objectWithKeyValues:responseObject]);
+             }
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (self.requestBlock) {
+                 self.requestBlock((int)error.code, nil);
+             }
+             self.requestBlock = nil;
+         }];
+}
+
+/**
+ *  更新GAS煤气传感器的推送功能
+ *
+ *  @param user   用户名
+ *  @param status 是否打开推送
+ *  @param block  结果返回block
+ */
+- (void)updateGASRemotePushWithUser:(NSString *)user
+                          newStatus:(BOOL)status
+                              block:(KMRequestResultBlock)block
+{
+    self.requestBlock = block;
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 30;
+
+    [manager GET:[NSString stringWithFormat:@"http://%@/api/enableGASRemotePush?userName=%@&iOSEnableGASPush=%d", kHostAddress, user, status]
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             NSString *jsonString = [[NSString alloc] initWithData:responseObject
+                                                          encoding:NSUTF8StringEncoding];
+             DMLog(@"<- %@", jsonString);
+             if (self.requestBlock) {
+                 self.requestBlock(0, [HBNetResModel mj_objectWithKeyValues:responseObject]);
+             }
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (self.requestBlock) {
+                 self.requestBlock((int)error.code, nil);
+             }
+             self.requestBlock = nil;
+         }];
+}
+
+/**
+ *  获取GAS当前推送状态
+ *
+ *  @param user  用户名
+ *  @param block 结果返回block
+ */
+- (void)getGASRemotePushWithUser:(NSString *)user
+                           block:(KMRequestResultBlock)block
+{
+    self.requestBlock = block;
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 30;
+
+    [manager GET:[NSString stringWithFormat:@"http://%@/api/enableGASRemotePush?userName=%@", kHostAddress, user]
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             NSString *jsonString = [[NSString alloc] initWithData:responseObject
+                                                          encoding:NSUTF8StringEncoding];
+             DMLog(@"<- %@", jsonString);
+             if (self.requestBlock) {
+                 self.requestBlock(0, [HBGASRemoteModel mj_objectWithKeyValues:responseObject]);
+             }
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (self.requestBlock) {
+                 self.requestBlock((int)error.code, nil);
+             }
+             self.requestBlock = nil;
+         }];
+}
+
 #pragma mark - 连接成功
 - (void)connection: (NSURLConnection *)connection didReceiveResponse: (NSURLResponse *)aResponse
 {

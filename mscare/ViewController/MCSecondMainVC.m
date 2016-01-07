@@ -8,6 +8,12 @@
 
 #import "MCSecondMainVC.h"
 
+@interface MCSecondMainVC()
+
+@property (nonatomic, strong) UITableView *tableView;
+
+@end
+
 @implementation MCSecondMainVC
 
 - (void)viewDidLoad
