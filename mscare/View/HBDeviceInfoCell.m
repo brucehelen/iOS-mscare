@@ -9,8 +9,8 @@
 #import "HBDeviceInfoCell.h"
 
 #define kHeadImageWidth     40
-#define kTopLableW   150
-#define kTopLableH   40
+#define kTopLableW          150
+#define kTopLableH          40
 
 @interface HBDeviceInfoCell()
 
@@ -59,7 +59,6 @@
         make.left.equalTo(ws.headImageView.mas_right).offset(10);
         make.right.equalTo(ws.contentView);
         make.top.equalTo(ws.headImageView);
-        
     }];
 
     self.bottomLable = [[UILabel alloc] init];

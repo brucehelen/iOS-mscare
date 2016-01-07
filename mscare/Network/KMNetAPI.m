@@ -344,6 +344,18 @@
          }];
 }
 
+/**
+ *  一次获取所有状态
+ *  /api/pushStatus
+ *
+ *  @param block 结果返回block
+ */
+- (void)getPushStatus:(KMRequestResultBlock)block
+{
+    self.requestBlock = block;
+    
+}
+
 #pragma mark - 连接成功
 - (void)connection: (NSURLConnection *)connection didReceiveResponse: (NSURLResponse *)aResponse
 {
