@@ -9,10 +9,15 @@
 #import "MCSecondMainVC.h"
 #import "AppDelegate.h"
 #import "KMNetAPI.h"
+#import "HBDeviceInfoCell.h"
 
 @interface MCSecondMainVC() <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) HBMonitorModel *monitorModel;
+
+@property (nonatomic, strong) HBPushStatusModel *gasPushModel;
 
 @end
 
@@ -58,7 +63,7 @@
 
     // 下拉刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
+        [ws requestMonitor];
     }];
 }
 
@@ -67,7 +72,15 @@
  */
 - (void)requestMonitor
 {
-    
+    WS(ws);
+
+    [[KMNetAPI manager] getMonitorStatus:^(int code, id resModel) {
+        [self.tableView.mj_header endRefreshing];
+        if (code == 0 && [resModel isKindOfClass:[HBMonitorModel class]]) {
+            ws.monitorModel = resModel;
+            [ws.tableView reloadData];
+        }
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -77,13 +90,58 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    HBDeviceInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:@"cell"];
+        cell = [[HBDeviceInfoCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                       reuseIdentifier:@"cell"];
+        cell.switchOn.hidden = NO;
+        
+        [cell.switchOn addTarget:self
+                          action:@selector(switchDidClick:)
+                forControlEvents:UIControlEventValueChanged];
     }
-    
+
+    cell.tag = indexPath.row;
+    switch (indexPath.row) {
+        case 0:
+            cell.headImageView.image = [UIImage imageNamed:@"pir"];
+            cell.topLable.text = @"HC-SR501红外传感器";
+            cell.bottomLable.text = self.monitorModel.pir == 0 ? @"状态: 正常" : @"状态: 异常";
+            cell.bottomLable.textColor = self.monitorModel.pir == 0 ? [UIColor grayColor] : [UIColor redColor];
+            cell.switchOn.on = self.monitorModel.pirEnable;
+            break;
+        case 1:
+            cell.headImageView.image = [UIImage imageNamed:@"gas"];
+            cell.topLable.text = @"MQ-5气体传感器";
+            cell.bottomLable.text = self.monitorModel.gas == 0 ? @"状态: 正常" : @"状态: 异常";
+            cell.bottomLable.textColor = self.monitorModel.gas == 0 ? [UIColor grayColor] : [UIColor redColor];
+            cell.switchOn.on = self.monitorModel.gasEnable;
+            break;
+        default:
+            break;
+    }
+
     return cell;
 }
+
+#pragma mark - UISwitch-更新防盗设定
+- (void)switchDidClick:(UISwitch *)mSwitch
+{
+    BOOL state = mSwitch.isOn;
+    
+    WS(ws);
+    [SVProgressHUD showWithStatus:@"正在获取数据"];
+    [[KMNetAPI manager] updatePIRRemotePpushWithUser:@"Bruce"
+                                           newStatus:state
+                                               block:^(int code, id resModel) {
+                                                   [SVProgressHUD dismiss];
+                                                   if (code == 0 && resModel) {
+                                                       
+                                                   } else {
+                                                       [SVProgressHUD showErrorWithStatus:@"设置失败"];
+                                                   }
+                                               }];
+}
+
 
 @end

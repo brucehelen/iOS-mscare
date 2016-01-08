@@ -20,6 +20,8 @@
 @property (nonatomic, strong) UIImageView *headImageView;
 @property (nonatomic, strong) UILabel *topLable;
 @property (nonatomic, strong) UILabel *bottomLable;
+@property (nonatomic, strong) UISwitch *switchOn;
+
 /**
  *  在线状态
  */
@@ -79,12 +81,19 @@
     [self.contentView addSubview:self.onlineBtn];
     [self.onlineBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(ws.contentView);
-        make.right.equalTo(ws.contentView).offset(-50);
+        make.right.equalTo(ws.contentView);
     }];
+    
+    self.onlineBtn.hidden = YES;
+    
+    self.switchOn = [[UISwitch alloc] init];
+    self.accessoryView = self.switchOn;
+    self.switchOn.hidden = YES;
 }
 
 - (void)setOnline:(BOOL)online
 {
+    self.onlineBtn.hidden = NO;
     _online = online;
     if (online) {
         self.onlineBtn.selected = YES;

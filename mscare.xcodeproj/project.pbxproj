@@ -242,6 +242,10 @@
 		7A7ABADC1C3CC6B90039DE3E /* HBNetResModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7ABADB1C3CC6B90039DE3E /* HBNetResModel.m */; };
 		7A972A231C3E5A9200AEB906 /* HBPIRRemoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A972A221C3E5A9200AEB906 /* HBPIRRemoteModel.m */; };
 		7A972A261C3E6D5700AEB906 /* HBGASRemoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A972A251C3E6D5700AEB906 /* HBGASRemoteModel.m */; };
+		7A972A291C3F66FC00AEB906 /* gas.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A972A271C3F66FC00AEB906 /* gas.png */; };
+		7A972A2A1C3F66FC00AEB906 /* pir.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A972A281C3F66FC00AEB906 /* pir.png */; };
+		7A972A2D1C3F6D3B00AEB906 /* HBMonitorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A972A2C1C3F6D3B00AEB906 /* HBMonitorModel.m */; };
+		7A972A301C3F6E2400AEB906 /* HBPushStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A972A2F1C3F6E2400AEB906 /* HBPushStatusModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -650,6 +654,12 @@
 		7A972A221C3E5A9200AEB906 /* HBPIRRemoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPIRRemoteModel.m; sourceTree = "<group>"; };
 		7A972A241C3E6D5700AEB906 /* HBGASRemoteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBGASRemoteModel.h; sourceTree = "<group>"; };
 		7A972A251C3E6D5700AEB906 /* HBGASRemoteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBGASRemoteModel.m; sourceTree = "<group>"; };
+		7A972A271C3F66FC00AEB906 /* gas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gas.png; sourceTree = "<group>"; };
+		7A972A281C3F66FC00AEB906 /* pir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pir.png; sourceTree = "<group>"; };
+		7A972A2B1C3F6D3B00AEB906 /* HBMonitorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBMonitorModel.h; sourceTree = "<group>"; };
+		7A972A2C1C3F6D3B00AEB906 /* HBMonitorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBMonitorModel.m; sourceTree = "<group>"; };
+		7A972A2E1C3F6E2400AEB906 /* HBPushStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBPushStatusModel.h; sourceTree = "<group>"; };
+		7A972A2F1C3F6E2400AEB906 /* HBPushStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBPushStatusModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -711,6 +721,10 @@
 				7A972A221C3E5A9200AEB906 /* HBPIRRemoteModel.m */,
 				7A972A241C3E6D5700AEB906 /* HBGASRemoteModel.h */,
 				7A972A251C3E6D5700AEB906 /* HBGASRemoteModel.m */,
+				7A972A2B1C3F6D3B00AEB906 /* HBMonitorModel.h */,
+				7A972A2C1C3F6D3B00AEB906 /* HBMonitorModel.m */,
+				7A972A2E1C3F6E2400AEB906 /* HBPushStatusModel.h */,
+				7A972A2F1C3F6E2400AEB906 /* HBPushStatusModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1449,6 +1463,8 @@
 		7A5376721B8C410C001ADAAA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7A972A271C3F66FC00AEB906 /* gas.png */,
+				7A972A281C3F66FC00AEB906 /* pir.png */,
 				3220B2F91C3952E800B60008 /* gateway_log_sel@2x.png */,
 				3220B2FA1C3952E800B60008 /* gateway_log_sel@3x.png */,
 				3220B2FB1C3952E800B60008 /* gateway_log_unsel@2x.png */,
@@ -1624,6 +1640,7 @@
 				3220B2BD1C391B3500B60008 /* icon_back_topbar@2x.png in Resources */,
 				7A10581A1B8C362A00F3D339 /* action-gray-button-selected@2x.png in Resources */,
 				7A1058181B8C362A00F3D339 /* action-black-button@2x.png in Resources */,
+				7A972A2A1C3F66FC00AEB906 /* pir.png in Resources */,
 				32E7711A1B954E4400067AD9 /* ico_tabbar_my_selected@3x.png in Resources */,
 				32E771171B954E4400067AD9 /* ico_tabbar_more@3x.png in Resources */,
 				32E771191B954E4400067AD9 /* ico_tabbar_my@3x.png in Resources */,
@@ -1656,6 +1673,7 @@
 				32E7710F1B954E4400067AD9 /* ico_tabbar_more@2x.png in Resources */,
 				3220B2DA1C39209B00B60008 /* icon_fenlei_topbar@3x.png in Resources */,
 				7A1058281B8C362A00F3D339 /* alert-green-button@2x.png in Resources */,
+				7A972A291C3F66FC00AEB906 /* gas.png in Resources */,
 				3220B2BE1C391B3500B60008 /* icon_back_topbar@3x.png in Resources */,
 				7A1058211B8C362A00F3D339 /* action-sheet-panel.png in Resources */,
 				32E771161B954E4400067AD9 /* ico_tabbar_interact_selected@3x.png in Resources */,
@@ -1813,6 +1831,7 @@
 				3220B3031C39E6C400B60008 /* UIView+i7Rotate360.m in Sources */,
 				32FD3DBE1C2633830032B812 /* UIScrollView+MJExtension.m in Sources */,
 				32FD3DAA1C2633830032B812 /* NSObject+MJCoding.m in Sources */,
+				7A972A301C3F6E2400AEB906 /* HBPushStatusModel.m in Sources */,
 				32FD3DB61C2633830032B812 /* MJRefreshBackGifFooter.m in Sources */,
 				7A1058351B8C362A00F3D339 /* BlockTextPromptAlertView.m in Sources */,
 				7A1056AC1B8C34C800F3D339 /* AppDelegate.m in Sources */,
@@ -1855,6 +1874,7 @@
 				32FD3DAE1C2633830032B812 /* MJRefreshAutoFooter.m in Sources */,
 				3220B2EC1C393B0300B60008 /* HBSensors.m in Sources */,
 				7A1058781B8C362A00F3D339 /* ActionSheetDatePicker.m in Sources */,
+				7A972A2D1C3F6D3B00AEB906 /* HBMonitorModel.m in Sources */,
 				32FD3DC91C2633830032B812 /* SDWebImagePrefetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

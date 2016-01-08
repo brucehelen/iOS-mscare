@@ -12,6 +12,8 @@
 #import "HBNetResModel.h"
 #import "HBPIRRemoteModel.h"
 #import "HBGASRemoteModel.h"
+#import "HBMonitorModel.h"
+#import "HBPushStatusModel.h"
 
 /*
  * code: 请求是否成功，0成功，其他失败
@@ -73,6 +75,7 @@ typedef void (^KMRequestResultBlock)(int code, id resModel);
  */
 - (void)getPIRRemotePushWithUser:(NSString *)user
                            block:(KMRequestResultBlock)block;
+
 /**
  *  更新GAS煤气传感器的推送功能
  *
@@ -92,6 +95,22 @@ typedef void (^KMRequestResultBlock)(int code, id resModel);
  */
 - (void)getGASRemotePushWithUser:(NSString *)user
                            block:(KMRequestResultBlock)block;
+
+/**
+ *  一次获取PIR和GAS所有推送状态
+ *  /api/pushStatus
+ *
+ *  @param block 结果返回block(HBPushStatusModel)
+ */
+- (void)getPushStatus:(KMRequestResultBlock)block;
+
+/**
+ *  获取PIR和GAS当前状态
+ *  /api/monitor
+ *
+ *  @param block 结果返回block(HBMonitorModel)
+ */
+- (void)getMonitorStatus:(KMRequestResultBlock)block;
 
 @end
 

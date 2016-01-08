@@ -345,15 +345,64 @@
 }
 
 /**
- *  一次获取所有状态
+ *  一次获取PIR和GAS所有推送状态
  *  /api/pushStatus
  *
- *  @param block 结果返回block
+ *  @param block 结果返回block(HBPushStatusModel)
  */
 - (void)getPushStatus:(KMRequestResultBlock)block
 {
     self.requestBlock = block;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 30;
+
+    [manager GET:[NSString stringWithFormat:@"http://%@/api/pushStatus", kHostAddress]
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             NSString *jsonString = [[NSString alloc] initWithData:responseObject
+                                                          encoding:NSUTF8StringEncoding];
+             DMLog(@"<- %@", jsonString);
+             if (self.requestBlock) {
+                 self.requestBlock(0, [HBPushStatusModel mj_objectWithKeyValues:responseObject]);
+             }
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (self.requestBlock) {
+                 self.requestBlock((int)error.code, nil);
+             }
+             self.requestBlock = nil;
+         }];
+}
+
+/**
+ *  获取PIR和GAS当前状态
+ *  /api/monitor
+ *
+ *  @param block 结果返回block(HBMonitorModel)
+ */
+- (void)getMonitorStatus:(KMRequestResultBlock)block
+{
+    self.requestBlock = block;
     
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 30;
+    
+    [manager GET:[NSString stringWithFormat:@"http://%@/api/monitor", kHostAddress]
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             NSString *jsonString = [[NSString alloc] initWithData:responseObject
+                                                          encoding:NSUTF8StringEncoding];
+             DMLog(@"<- %@", jsonString);
+             if (self.requestBlock) {
+                 self.requestBlock(0, [HBMonitorModel mj_objectWithKeyValues:responseObject]);
+             }
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (self.requestBlock) {
+                 self.requestBlock((int)error.code, nil);
+             }
+             self.requestBlock = nil;
+         }];
 }
 
 #pragma mark - 连接成功

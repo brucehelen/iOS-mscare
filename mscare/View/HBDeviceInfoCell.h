@@ -14,6 +14,11 @@
 @property (nonatomic, readonly, strong) UILabel *topLable;
 @property (nonatomic, readonly, strong) UILabel *bottomLable;
 /**
+ *  UISwitch开关
+ */
+@property (nonatomic, readonly, strong) UISwitch *switchOn;
+
+/**
  *  在线状态
  */
 @property (nonatomic, assign) BOOL online;
