@@ -32,6 +32,12 @@
     [self configView];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self requestMonitor];
+}
+
 - (void)configNavBar
 {
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_fenlei_topbar"]
@@ -53,6 +59,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 70;
+    self.tableView.allowsSelection = NO;
     self.tableView.tableFooterView = [UIView new];
 
     WS(ws);
@@ -101,7 +108,7 @@
                 forControlEvents:UIControlEventValueChanged];
     }
 
-    cell.tag = indexPath.row;
+    cell.switchOn.tag = indexPath.row;
     switch (indexPath.row) {
         case 0:
             cell.headImageView.image = [UIImage imageNamed:@"pir"];
@@ -128,20 +135,39 @@
 - (void)switchDidClick:(UISwitch *)mSwitch
 {
     BOOL state = mSwitch.isOn;
-    
-    WS(ws);
-    [SVProgressHUD showWithStatus:@"正在获取数据"];
-    [[KMNetAPI manager] updatePIRRemotePpushWithUser:@"Bruce"
-                                           newStatus:state
-                                               block:^(int code, id resModel) {
-                                                   [SVProgressHUD dismiss];
-                                                   if (code == 0 && resModel) {
-                                                       
-                                                   } else {
-                                                       [SVProgressHUD showErrorWithStatus:@"设置失败"];
-                                                   }
-                                               }];
-}
 
+    switch (mSwitch.tag) {
+        case 0:         // PIR
+        {
+            [SVProgressHUD showWithStatus:@"正在获取数据"];
+            [[KMNetAPI manager] updatePIRRemotePushWithUser:@"Bruce"
+                                                  newStatus:state
+                                                      block:^(int code, id resModel) {
+                                                          [SVProgressHUD dismiss];
+                                                          if (code == 0 && resModel) {
+                                                              
+                                                          } else {
+                                                              [SVProgressHUD showErrorWithStatus:@"设置失败"];
+                                                          }
+                                                      }];
+        } break;
+        case 1:         // GAS
+        {
+            [SVProgressHUD showWithStatus:@"正在获取数据"];
+            [[KMNetAPI manager] updateGASRemotePushWithUser:@"Bruce"
+                                                  newStatus:state
+                                                      block:^(int code, id resModel) {
+                                                          [SVProgressHUD dismiss];
+                                                          if (code == 0 && resModel) {
+                                                              
+                                                          } else {
+                                                              [SVProgressHUD showErrorWithStatus:@"设置失败"];
+                                                          }
+                                                      }];
+        } break;
+        default:
+            break;
+    }
+}
 
 @end

@@ -49,6 +49,7 @@
 		3220B3001C3952E800B60008 /* gateway_log_unsel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3220B2FC1C3952E800B60008 /* gateway_log_unsel@3x.png */; };
 		3220B3031C39E6C400B60008 /* UIView+i7Rotate360.m in Sources */ = {isa = PBXBuildFile; fileRef = 3220B3021C39E6C400B60008 /* UIView+i7Rotate360.m */; };
 		3220B3061C39EB9D00B60008 /* HBRelayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3220B3051C39EB9D00B60008 /* HBRelayModel.m */; };
+		3221FE121C3FF7C400E986DE /* KMShowAlertMsgWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3221FE111C3FF7C400E986DE /* KMShowAlertMsgWindow.m */; };
 		3289F2B61C2FE316008F944B /* HBInsideVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3289F2B51C2FE316008F944B /* HBInsideVC.m */; };
 		3289F2B91C2FE531008F944B /* HBDeviceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3289F2B81C2FE531008F944B /* HBDeviceInfoCell.m */; };
 		3289F2BD1C316D6F008F944B /* HBSensorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3289F2BC1C316D6F008F944B /* HBSensorModel.m */; };
@@ -306,6 +307,8 @@
 		3220B3021C39E6C400B60008 /* UIView+i7Rotate360.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+i7Rotate360.m"; sourceTree = "<group>"; };
 		3220B3041C39EB9D00B60008 /* HBRelayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBRelayModel.h; sourceTree = "<group>"; };
 		3220B3051C39EB9D00B60008 /* HBRelayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBRelayModel.m; sourceTree = "<group>"; };
+		3221FE101C3FF7C400E986DE /* KMShowAlertMsgWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMShowAlertMsgWindow.h; sourceTree = "<group>"; };
+		3221FE111C3FF7C400E986DE /* KMShowAlertMsgWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMShowAlertMsgWindow.m; sourceTree = "<group>"; };
 		3289F2B41C2FE316008F944B /* HBInsideVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBInsideVC.h; sourceTree = "<group>"; };
 		3289F2B51C2FE316008F944B /* HBInsideVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBInsideVC.m; sourceTree = "<group>"; };
 		3289F2B71C2FE531008F944B /* HBDeviceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBDeviceInfoCell.h; sourceTree = "<group>"; };
@@ -1444,6 +1447,8 @@
 				32E770F41B945B4B00067AD9 /* MCSecondMainVC.m */,
 				32E770F61B945B7200067AD9 /* MCThirdMainVC.h */,
 				32E770F71B945B7200067AD9 /* MCThirdMainVC.m */,
+				3221FE101C3FF7C400E986DE /* KMShowAlertMsgWindow.h */,
+				3221FE111C3FF7C400E986DE /* KMShowAlertMsgWindow.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1752,6 +1757,7 @@
 				32FD3D821C2633830032B812 /* AFHTTPRequestOperationManager.m in Sources */,
 				7A1058831B8C362A00F3D339 /* SWUtilityButtonView.m in Sources */,
 				7A1058B61B8C364100F3D339 /* NSString+ZZExtends.m in Sources */,
+				3221FE121C3FF7C400E986DE /* KMShowAlertMsgWindow.m in Sources */,
 				32FD3DBB1C2633830032B812 /* MJRefreshStateHeader.m in Sources */,
 				32FD3DC51C2633830032B812 /* SDWebImageDecoder.m in Sources */,
 				32FD3D941C2633830032B812 /* IQTitleBarButtonItem.m in Sources */,

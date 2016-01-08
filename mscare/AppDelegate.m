@@ -153,7 +153,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     DMLog(@"-> userInfo: %@", userInfo);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"kmReceiveRemoteNotification"
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRemoteNotification"
                                                         object:userInfo];
 }
 

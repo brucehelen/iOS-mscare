@@ -64,9 +64,9 @@ typedef void (^KMRequestResultBlock)(int code, id resModel);
  *  @param status 是否打开推送
  *  @param block  结果返回block
  */
-- (void)updatePIRRemotePpushWithUser:(NSString *)user
-                           newStatus:(BOOL)status
-                               block:(KMRequestResultBlock)block;
+- (void)updatePIRRemotePushWithUser:(NSString *)user
+                          newStatus:(BOOL)status
+                              block:(KMRequestResultBlock)block;
 /**
  *  获取PIR当前推送状态
  *

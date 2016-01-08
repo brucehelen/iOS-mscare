@@ -70,7 +70,7 @@
     
     UILabel *nameLabel = [UILabel new];
     nameLabel.textColor = RGBA(79, 218, 85, 1);
-    nameLabel.text = @"智慧家庭(Smart Home)";
+    nameLabel.text = @"智慧家庭(SmartHome)";
     nameLabel.font = [UIFont boldSystemFontOfSize:27];
     nameLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:nameLabel];
@@ -83,7 +83,7 @@
     
     UILabel *authorLabel = [UILabel new];
     authorLabel.textColor = RGBA(11, 111, 225, 1);
-    authorLabel.text = @"ID: 小麦克\nQQ: 378214384";
+    authorLabel.text = @"ID: 小麦克\nQQ: 378214384\n378214384@qq.com";
     authorLabel.numberOfLines = 0;
     authorLabel.font = [UIFont systemFontOfSize:18];
     authorLabel.textAlignment = NSTextAlignmentCenter;
@@ -92,7 +92,7 @@
         make.centerX.equalTo(projectLabel);
         make.top.equalTo(nameLabel.mas_bottom).offset(20);
         make.left.right.equalTo(self.view);
-        make.height.equalTo(@60);
+        make.height.equalTo(@90);
     }];
 }
 

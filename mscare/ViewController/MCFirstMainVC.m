@@ -14,6 +14,7 @@
 #import "HBDeviceInfoCell.h"
 #import "AppDelegate.h"
 #import "KMNetAPI.h"
+#import "KMShowAlertMsgWindow.h"
 
 @interface MCFirstMainVC() <UITableViewDataSource, UITableViewDelegate>
 
@@ -42,6 +43,7 @@
     // 获取数据
     [SVProgressHUD showWithStatus:@"正在获取数据"];
     [self requestInsideSensorData];
+    [self configRemoteNotification];
 }
 
 - (void)configNavBar
@@ -77,6 +79,37 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [ws requestInsideSensorData];
     }];
+}
+
+#pragma mark - 推送相关
+
+- (void)configRemoteNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(ReceiveRemoteNotification:)
+                                                 name:@"ReceiveRemoteNotification"
+                                               object:nil];
+    
+
+    // 检查是否有推送消息
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSDictionary *data = [userDefault valueForKey:@"pushNotificationKey"];
+    if (data) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReceiveRemoteNotification"
+                                                            object:data];
+        // 清楚之前保存的信息
+        [userDefault setObject:nil forKey:@"pushNotificationKey"];
+    }
+}
+
+- (void)ReceiveRemoteNotification:(NSNotification*)notify
+{
+    NSDictionary *userInfo = notify.object;
+
+    if (userInfo) {
+        NSString *msg = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+        [[KMShowAlertMsgWindow sharedInstance] showMsg:msg];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

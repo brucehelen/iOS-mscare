@@ -219,9 +219,9 @@
  *  @param status 是否打开推送
  *  @param block  结果返回block
  */
-- (void)updatePIRRemotePpushWithUser:(NSString *)user
-                           newStatus:(BOOL)status
-                            block:(KMRequestResultBlock)block
+- (void)updatePIRRemotePushWithUser:(NSString *)user
+                          newStatus:(BOOL)status
+                              block:(KMRequestResultBlock)block
 {
     self.requestBlock = block;
     
