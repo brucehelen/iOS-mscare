@@ -405,6 +405,36 @@
          }];
 }
 
+/**
+ *  发送拍照命令
+ *
+ *  @param block 结果返回block
+ */
+- (void)sendCameraCMDWithBlock:(KMRequestResultBlock)block
+{
+    self.requestBlock = block;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 30;
+    
+    [manager GET:[NSString stringWithFormat:@"http://%@/api/camera", kHostAddress]
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+             NSString *jsonString = [[NSString alloc] initWithData:responseObject
+                                                          encoding:NSUTF8StringEncoding];
+             DMLog(@"<- %@", jsonString);
+             if (self.requestBlock) {
+                 self.requestBlock(0, [HBCameraModel mj_objectWithKeyValues:responseObject]);
+             }
+         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+             if (self.requestBlock) {
+                 self.requestBlock((int)error.code, nil);
+             }
+             self.requestBlock = nil;
+         }];
+}
+
 #pragma mark - 连接成功
 - (void)connection: (NSURLConnection *)connection didReceiveResponse: (NSURLResponse *)aResponse
 {

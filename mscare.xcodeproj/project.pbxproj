@@ -50,6 +50,9 @@
 		3220B3031C39E6C400B60008 /* UIView+i7Rotate360.m in Sources */ = {isa = PBXBuildFile; fileRef = 3220B3021C39E6C400B60008 /* UIView+i7Rotate360.m */; };
 		3220B3061C39EB9D00B60008 /* HBRelayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3220B3051C39EB9D00B60008 /* HBRelayModel.m */; };
 		3221FE121C3FF7C400E986DE /* KMShowAlertMsgWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3221FE111C3FF7C400E986DE /* KMShowAlertMsgWindow.m */; };
+		3221FE141C41365D00E986DE /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221FE131C41365D00E986DE /* camera.png */; };
+		3221FE171C41374800E986DE /* HBCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3221FE161C41374800E986DE /* HBCameraVC.m */; };
+		3221FE1A1C41F83900E986DE /* HBCameraModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3221FE191C41F83900E986DE /* HBCameraModel.m */; };
 		3289F2B61C2FE316008F944B /* HBInsideVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3289F2B51C2FE316008F944B /* HBInsideVC.m */; };
 		3289F2B91C2FE531008F944B /* HBDeviceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3289F2B81C2FE531008F944B /* HBDeviceInfoCell.m */; };
 		3289F2BD1C316D6F008F944B /* HBSensorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3289F2BC1C316D6F008F944B /* HBSensorModel.m */; };
@@ -309,6 +312,11 @@
 		3220B3051C39EB9D00B60008 /* HBRelayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBRelayModel.m; sourceTree = "<group>"; };
 		3221FE101C3FF7C400E986DE /* KMShowAlertMsgWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMShowAlertMsgWindow.h; sourceTree = "<group>"; };
 		3221FE111C3FF7C400E986DE /* KMShowAlertMsgWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMShowAlertMsgWindow.m; sourceTree = "<group>"; };
+		3221FE131C41365D00E986DE /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		3221FE151C41374800E986DE /* HBCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBCameraVC.h; sourceTree = "<group>"; };
+		3221FE161C41374800E986DE /* HBCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBCameraVC.m; sourceTree = "<group>"; };
+		3221FE181C41F83900E986DE /* HBCameraModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBCameraModel.h; sourceTree = "<group>"; };
+		3221FE191C41F83900E986DE /* HBCameraModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBCameraModel.m; sourceTree = "<group>"; };
 		3289F2B41C2FE316008F944B /* HBInsideVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBInsideVC.h; sourceTree = "<group>"; };
 		3289F2B51C2FE316008F944B /* HBInsideVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBInsideVC.m; sourceTree = "<group>"; };
 		3289F2B71C2FE531008F944B /* HBDeviceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBDeviceInfoCell.h; sourceTree = "<group>"; };
@@ -728,6 +736,8 @@
 				7A972A2C1C3F6D3B00AEB906 /* HBMonitorModel.m */,
 				7A972A2E1C3F6E2400AEB906 /* HBPushStatusModel.h */,
 				7A972A2F1C3F6E2400AEB906 /* HBPushStatusModel.m */,
+				3221FE181C41F83900E986DE /* HBCameraModel.h */,
+				3221FE191C41F83900E986DE /* HBCameraModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1081,6 +1091,7 @@
 		32FD3DD11C2641990032B812 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				3221FE131C41365D00E986DE /* camera.png */,
 				32FD3DD21C2641990032B812 /* ickey_icon.jpg */,
 				32FD3DD31C2641990032B812 /* ickey_start.png */,
 			);
@@ -1445,6 +1456,8 @@
 				3289F2B51C2FE316008F944B /* HBInsideVC.m */,
 				32E770F31B945B4B00067AD9 /* MCSecondMainVC.h */,
 				32E770F41B945B4B00067AD9 /* MCSecondMainVC.m */,
+				3221FE151C41374800E986DE /* HBCameraVC.h */,
+				3221FE161C41374800E986DE /* HBCameraVC.m */,
 				32E770F61B945B7200067AD9 /* MCThirdMainVC.h */,
 				32E770F71B945B7200067AD9 /* MCThirdMainVC.m */,
 				3221FE101C3FF7C400E986DE /* KMShowAlertMsgWindow.h */,
@@ -1682,6 +1695,7 @@
 				3220B2BE1C391B3500B60008 /* icon_back_topbar@3x.png in Resources */,
 				7A1058211B8C362A00F3D339 /* action-sheet-panel.png in Resources */,
 				32E771161B954E4400067AD9 /* ico_tabbar_interact_selected@3x.png in Resources */,
+				3221FE141C41365D00E986DE /* camera.png in Resources */,
 				7A10582A1B8C362A00F3D339 /* alert-red-button@2x.png in Resources */,
 				7A1058241B8C362A00F3D339 /* alert-black-button@2x.png in Resources */,
 				7A1058231B8C362A00F3D339 /* alert-black-button.png in Resources */,
@@ -1813,6 +1827,7 @@
 				32FD3DBA1C2633830032B812 /* MJRefreshNormalHeader.m in Sources */,
 				32FD3DA81C2633830032B812 /* MJPropertyType.m in Sources */,
 				32FD3DC31C2633830032B812 /* SDImageCache.m in Sources */,
+				3221FE171C41374800E986DE /* HBCameraVC.m in Sources */,
 				7A1058BA1B8C364100F3D339 /* UIViewController+ZZExtends.m in Sources */,
 				32FD3DA31C2633830032B812 /* MJDictionaryCache.m in Sources */,
 				32FD3D881C2633830032B812 /* AFURLResponseSerialization.m in Sources */,
@@ -1849,6 +1864,7 @@
 				32FD3D811C2633830032B812 /* AFHTTPRequestOperation.m in Sources */,
 				32FD3D8F1C2633830032B812 /* IQKeyboardManager.m in Sources */,
 				32FD3D9D1C2633830032B812 /* MASViewAttribute.m in Sources */,
+				3221FE1A1C41F83900E986DE /* HBCameraModel.m in Sources */,
 				32FD3DAB1C2633830032B812 /* NSObject+MJKeyValue.m in Sources */,
 				32FD3D851C2633830032B812 /* AFSecurityPolicy.m in Sources */,
 				7A972A261C3E6D5700AEB906 /* HBGASRemoteModel.m in Sources */,

@@ -38,6 +38,11 @@
  */
 @property (nonatomic, strong) UILabel *pm10Label;
 /**
+ *  最后汇报时间
+ */
+@property (nonatomic, strong) UILabel *lastReportLabel;
+
+/**
  *  空气过滤器状态
  */
 @property (nonatomic, strong) HBRelayModel *relayModel;
@@ -73,6 +78,25 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"pic_top+titlebar_1334"]
                                                   forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
+}
+
+- (void)configNavBar
+{
+    if ([self.sensorModel.value.device_id isEqualToString:@"G3-001"]) {         // 室内
+        self.navigationItem.title = @"室内";
+    } else if ([self.sensorModel.value.device_id isEqualToString:@"G3-002"]) {  // 室外
+        self.navigationItem.title = @"室外";
+    }
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back_topbar"]
+                                                                             style:UIBarButtonItemStyleDone
+                                                                            target:self
+                                                                            action:@selector(leftBarButtonDidClicked:)];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"about_icon_update"]
+                                                                              style:UIBarButtonItemStyleDone
+                                                                             target:self
+                                                                             action:@selector(rightBarButtonDidClicked:)];
 }
 
 - (void)configView
@@ -170,27 +194,26 @@
         make.top.equalTo(ws.tempLabel.mas_bottom).offset(100);
         make.width.height.equalTo(@70);
     }];
-
     self.airButton.hidden = YES;
-}
 
-- (void)configNavBar
-{
-    if ([self.sensorModel.value.device_id isEqualToString:@"G3-001"]) {         // 室内
-        self.navigationItem.title = @"室内";
-    } else if ([self.sensorModel.value.device_id isEqualToString:@"G3-002"]) {  // 室外
-        self.navigationItem.title = @"室外";
-    }
+    // 最后汇报时间
+    self.lastReportLabel = [[UILabel alloc] init];
+    self.lastReportLabel.textAlignment = NSTextAlignmentCenter;
+    self.lastReportLabel.numberOfLines = 0;
+    self.lastReportLabel.font = [UIFont fontWithName:@"DINCond-Regular" size:20];
+    self.lastReportLabel.textColor = [UIColor grayColor];
+    [self.view addSubview:self.lastReportLabel];
+    [self.lastReportLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(ws.view);
+        make.bottom.equalTo(ws.view).offset(-50);
+    }];
 
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_back_topbar"]
-                                                                             style:UIBarButtonItemStyleDone
-                                                                            target:self
-                                                                            action:@selector(leftBarButtonDidClicked:)];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"about_icon_update"]
-                                                                              style:UIBarButtonItemStyleDone
-                                                                             target:self
-                                                                             action:@selector(rightBarButtonDidClicked:)];
+    NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:self.sensorModel.last_report/1000.0];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSString *dateString = [dateFormatter stringFromDate:date];
+
+    self.lastReportLabel.text = [NSString stringWithFormat:@"last report\n%@", dateString];
 }
 
 #pragma mark - 返回
@@ -279,6 +302,12 @@
         self.pm1_0Label.text = [NSString stringWithFormat:@"PM1.0\n%.1fug/m³", self.sensorModel.value.sensor.pm1_0];
         self.pm10Label.text = [NSString stringWithFormat:@"PM10\n%.1fug/m³", self.sensorModel.value.sensor.pm10];
         self.tempLabel.text = [NSString stringWithFormat:@"%.3f°", self.sensorModel.value.sensor.temp];
+
+        NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:self.sensorModel.last_report/1000.0];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+        NSString *dateString = [dateFormatter stringFromDate:date];
+        self.lastReportLabel.text = [NSString stringWithFormat:@"last report\n%@", dateString];
 
         if ([self.sensorModel.value.device_id isEqualToString:@"G3-001"]) {
             self.airButton.hidden = NO;

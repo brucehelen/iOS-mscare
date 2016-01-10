@@ -14,6 +14,7 @@
 #import "HBGASRemoteModel.h"
 #import "HBMonitorModel.h"
 #import "HBPushStatusModel.h"
+#import "HBCameraModel.h"
 
 /*
  * code: 请求是否成功，0成功，其他失败
@@ -111,6 +112,13 @@ typedef void (^KMRequestResultBlock)(int code, id resModel);
  *  @param block 结果返回block(HBMonitorModel)
  */
 - (void)getMonitorStatus:(KMRequestResultBlock)block;
+
+/**
+ *  发送拍照命令
+ *
+ *  @param block 结果返回block
+ */
+- (void)sendCameraCMDWithBlock:(KMRequestResultBlock)block;
 
 @end
 

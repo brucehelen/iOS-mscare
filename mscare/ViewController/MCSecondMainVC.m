@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "KMNetAPI.h"
 #import "HBDeviceInfoCell.h"
+#import "HBCameraVC.h"
 
 @interface MCSecondMainVC() <UITableViewDataSource, UITableViewDelegate>
 
@@ -59,7 +60,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 70;
-    self.tableView.allowsSelection = NO;
     self.tableView.tableFooterView = [UIView new];
 
     WS(ws);
@@ -92,7 +92,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,16 +119,33 @@
             break;
         case 1:
             cell.headImageView.image = [UIImage imageNamed:@"gas"];
-            cell.topLable.text = @"MQ-5气体传感器";
+            cell.topLable.text = @"MQ-5天然气传感器";
             cell.bottomLable.text = self.monitorModel.gas == 0 ? @"状态: 正常" : @"状态: 异常";
             cell.bottomLable.textColor = self.monitorModel.gas == 0 ? [UIColor grayColor] : [UIColor redColor];
             cell.switchOn.on = self.monitorModel.gasEnable;
+            break;
+        case 2:
+            cell.headImageView.image = [UIImage imageNamed:@"camera"];
+            cell.topLable.text = @"室内监控";
+            cell.bottomLable.text = @"拍照";
+            cell.bottomLable.textColor = [UIColor grayColor];
+            cell.switchOn.hidden = YES;
             break;
         default:
             break;
     }
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (indexPath.row == 2) {
+        HBCameraVC *vc = [[HBCameraVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - UISwitch-更新防盗设定
